@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+Iscrivi uno studente
+
+<form class="container" method="GET" action="effettuaIscrizione">
+	<div class="form-group">
+		<label for="matricola" class="mr-sm-2">Inserisci matricola</label>
+		<input class="form-control" type="text" id="matricola" />
+	</div>
+	
+	<div class="form-group">
+		<label for="cognome" class="mr-sm-2">Inserisci cognome</label>
+		<input class="form-control" type="text" id="cognome" />
+	</div>
+	
+	<div class="form-group">
+		<label for="nome" class="mr-sm-2">Inserisci nome</label>
+		<input class="form-control" type="text" id="nome" />
+	</div>
+	
+	<div class="form-group">
+		<label for="luogonascita" class="mr-sm-2">Luogo di nascita</label>
+		<input class="form-control" type="text" id="luogonascita"/>
+	</div>
+	
+	<div class="form-group">
+		<label for="datanascita" class="mr-sm-2">Date di nascita</label>
+		<input class="form-control" type="datetime-local" id="datanascita">
+	</div>
+	
+	<button class="btn btn-warning">Verifica dati inseriti</button>
+	<input class="btn btn-success" value="Iscrivi studente" type="submit"/>
+</form>
+</body>
+</html>

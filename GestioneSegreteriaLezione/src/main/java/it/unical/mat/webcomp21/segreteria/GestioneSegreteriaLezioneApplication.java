@@ -9,4 +9,5 @@ public class GestioneSegreteriaLezioneApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GestioneSegreteriaLezioneApplication.class, args);
 	}
+	
 }
