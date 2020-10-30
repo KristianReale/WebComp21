@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+div h1 {
+	color:red;
+}
+
+body>h3 {
+	color:blue;
+}
+
+figcaption>h3 {
+	color:green;
+}
+
+.jumbotron {
+	background-color: cyan;
+}
+
+article{
+	left : 100px;
+	font-family: verdana;
+  	font-size: 20px;
+}
+
+article+article{
+	text-decoration: underline;
+}
+
+
+#p1 {
+	text-decoration: underline;
+}
+
+p.specifico{
+	text-decoration: line-through
+}
