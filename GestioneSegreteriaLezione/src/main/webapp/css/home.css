@@ -22,6 +22,15 @@ article{
   	font-size: 20px;
 }
 
+#id_fratello{
+	text-decoration: overline;
+}
+
+.fratello{
+	text-decoration: line-through !important;
+}
+
+
 article+article{
 	text-decoration: underline;
 }
