@@ -1,19 +1,28 @@
-/**
- * 
- */
+function Studente(nome, cognome, matricola, numeroComponenti){
+	this.nome = nome;
+	this.cognome = cognome;
+	this.matricola = matricola;
+	this.numeroComponenti = numeroComponenti;
+}
 
 // Chiedere il numero dei componenti del nucleo familiare
 
 window.onload = function(){
-	calcolaIsee();	
+	var stud = new Studente("Mario", "Rossi", 123456, 2);
+	var stud2 = new Studente("Bruno", "Bianchi", 32334, 1);
+	calcolaIsee(stud);	
+	calcolaIsee(stud2);	
 }
 
 // window.onload = calcolaIsee();	// Non funziona
 
-function calcolaIsee(){
+function calcolaIsee(studente){
+	alert ("Inizio calcolo ISEE sullo studente " + studente.cognome + " " + studente.nome);
+	
 	var numeroComponenti;  //undefined
 	
-	numeroComponenti = prompt("Inserisci il numero dei componenti.");
+	//numeroComponenti = prompt("Inserisci il numero dei componenti.");
+	numeroComponenti = studente.numeroComponenti;
 	
 	var redditoComponenti = new Array();
 	//redditoComponenti.push(345);
@@ -58,11 +67,19 @@ function calcolaIsee(){
 	
 	ISE = ISR + ISP * 20/100;
 	
-	if (numeroComponenti < 5){
-		SE = scaleEquivalenza[numeroComponenti];	
-	}else{
-		SE = scaleEquivalenza.m5;
+	funzioneCalcolaSe = function(numComp, scaleEq){
+		if (numComp < 5){
+			SE = scaleEq[numComp];	
+		}else{
+			SE = scaleEq.m5;
+		}
+		return SE;
 	}
+	
+	var f = funzioneCalcolaSe;
+	
+	SE = f(numComponenti, scaleEquivalenza);
+	
 	
 	console.log("SE " + SE);
 	
@@ -74,10 +91,9 @@ function calcolaIsee(){
 	document.getElementById("ise").innerText = ISE;
 	document.getElementById("se").innerText = SE;
 	document.getElementById("isee").innerText = ISEE;
-	
-	
-	
 }
+
+
 
 
 
