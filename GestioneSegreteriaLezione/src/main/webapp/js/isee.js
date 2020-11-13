@@ -3,7 +3,13 @@ function Studente(nome, cognome, matricola, numeroComponenti){
 	this.cognome = cognome;
 	this.matricola = matricola;
 	this.numeroComponenti = numeroComponenti;
+	
+	this.datiPersonali = function(){
+		return "Nome: " + nome + " Cognome: " + cognome; 
+	}
 }
+
+Studente.prototype.nazione = "Italia";
 
 // Chiedere il numero dei componenti del nucleo familiare
 
@@ -17,7 +23,7 @@ window.onload = function(){
 // window.onload = calcolaIsee();	// Non funziona
 
 function calcolaIsee(studente){
-	alert ("Inizio calcolo ISEE sullo studente " + studente.cognome + " " + studente.nome);
+	alert ("Inizio calcolo ISEE sullo studente " + studente.datiPersonali());
 	
 	var numeroComponenti;  //undefined
 	
