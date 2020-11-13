@@ -8,18 +8,46 @@ body>h3 {
 	color:blue;
 }
 
-figcaption>h3 {
-	color:green;
-}
-
 .jumbotron {
 	background-color: cyan;
 }
 
-article{
-	left : 100px;
+p{
+	font-style: oblique;
+}
+
+#p1{
+	font-weight: bold;
+	font-size: larger;
+	font-family: serif;
+}
+
+article{	
 	font-family: verdana;
-  	font-size: 20px;
+  	font-size: 20px;  	   	 
+}
+
+h3#benvenuto{
+	text-align: left;
+	/*
+	border-left: 5px solid red;
+	border-right: 5px solid red;
+	border-top: 5px solid red;
+	border-bottom: 5px solid red;
+	*/
+	
+	border: 5px solid red;
+	/*
+	padding-top: 20px;
+	padding-bottom: 20px;*/
+	
+	padding: 50px;
+	
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	
+	/*border-style: dotted;*/
 }
 
 #id_fratello{
@@ -30,11 +58,14 @@ article{
 	text-decoration: line-through !important;
 }
 
+.jumbotron{
+	padding-left: 100px !important;
+}
 
 article+article{
 	text-decoration: underline;
+	
 }
-
 
 #p1 {
 	text-decoration: underline;
@@ -43,3 +74,31 @@ article+article{
 p.specifico{
 	text-decoration: line-through
 }
+
+img{
+	width : 100%;
+}
+
+figcaption.sopraImmagine{
+	position: relative;
+	top: -50px;
+	left: 10%;
+	color: white;
+}
+
+.fixed{
+	position: fixed;
+}
+
+.assoluta{
+	position: absolute !important;
+	top: 0px;
+	right: 10px;
+	
+}
+/* absolute, relative, fixed; */
+
+
+
+
+
