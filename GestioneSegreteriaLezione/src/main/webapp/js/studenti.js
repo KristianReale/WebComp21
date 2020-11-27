@@ -48,18 +48,17 @@ function cancellaStudenti(){
 	var checkBox = document.querySelector('input:checked');
 	var matricola = checkBox.value;
 	if (checkBox != null){
-		indexDaCancellare = null;
 		tuttiStudenti.forEach(function (stud, index){
 			if (stud.matricola == matricola){
 				daCancellare = index;
 			}
 		});
 		//alert(tuttiStudenti.length);
-		//alert(indexDaCancellare);
+		//alert(daCancellare);
 		if (daCancellare != null){
-			tuttiStudenti.splice(indexDaCancellare, 1);
+			tuttiStudenti.splice(daCancellare, 1);
 		}
-		cancellaDaTabella(indexDaCancellare);
+		cancellaDaTabella(daCancellare);
 		//alert(tuttiStudenti.length);
 	}else{
 		alert("Seleziona almeno un elemento");
