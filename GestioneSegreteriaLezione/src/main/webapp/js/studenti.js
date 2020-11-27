@@ -32,14 +32,51 @@ function inizializzaDati(){
 function popolaTabella(){
 	// for (Studente stud : tuttiStudenti)  // Versione Java 
 	tuttiStudenti.forEach(function (stud, index){
-		aggiungiStudente(stud);
+		aggiungiStudente(stud, false);
 	});
 }
 
 function registraEventi(){
 	var butIscrivi = document.getElementById("btnIscrivi");
 	butIscrivi.addEventListener("click", iscriviStudente);
+	
+	var butCancella = document.getElementById("btnCancella");
+	butCancella.addEventListener("click", cancellaStudenti);
 }
+
+function cancellaStudenti(){
+	var checkBox = document.querySelector('input:checked');
+	var matricola = checkBox.value;
+	if (checkBox != null){
+		indexDaCancellare = null;
+		tuttiStudenti.forEach(function (stud, index){
+			if (stud.matricola == matricola){
+				daCancellare = index;
+			}
+		});
+		//alert(tuttiStudenti.length);
+		//alert(indexDaCancellare);
+		if (daCancellare != null){
+			tuttiStudenti.splice(indexDaCancellare, 1);
+		}
+		cancellaDaTabella(indexDaCancellare);
+		//alert(tuttiStudenti.length);
+	}else{
+		alert("Seleziona almeno un elemento");
+	}
+}
+
+function cancellaDaTabella(indexDaCancellare){
+	var table = document.querySelector(".table");
+	var row = table.rows[indexDaCancellare + 1];
+	row.remove();
+}
+
+function nascondiStudente(){
+	var row = document.querySelector(".table").rows[1];	
+	row.style.display='none';
+}
+
 
 function iscriviStudente(){
 	// var bottone = document.querySelector("#btnIscrivi");
@@ -54,22 +91,27 @@ function iscriviStudente(){
 	aggiungiStudente(studente);
 }
 
-function aggiungiStudente(studente){
-	tuttiStudenti.push(studente);
+function aggiungiStudente(studente, salvaInArray = true){
+	if (salvaInArray){
+		tuttiStudenti.push(studente);
+	}
 	
 	var table = document.querySelector(".table");
 	var row = table.insertRow(-1);
 	//row.insertCell(studente.matricola);
-	var cellMatricola = row.insertCell(0);
+	var cellCheckbox = row.insertCell(0);
+	cellCheckbox.innerHTML= "<input type=\"checkbox\" id=\"" + studente.matricola + "\" name=\"" + studente.matricola + "\" value=\"" + studente.matricola + "\">";
+	
+	var cellMatricola = row.insertCell(1);
 	cellMatricola.textContent = studente.matricola;
 	
-	var cellCognome = row.insertCell(1);
+	var cellCognome = row.insertCell(2);
 	cellCognome.textContent = studente.cognome;
 	
-	var cellNome = row.insertCell(2);
+	var cellNome = row.insertCell(3);
 	cellNome.textContent = studente.nome;
 	
-	var cellEmail = row.insertCell(3);
+	var cellEmail = row.insertCell(4);
 	cellEmail.textContent = studente.email;
 }
 
