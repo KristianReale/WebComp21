@@ -1,5 +1,11 @@
 package persistence;
 
+import java.util.List;
+
+import model.Studente;
+import persistence.dao.StudenteDAO;
+import persistence.dao.jdbc.StudenteDAOJDBC;
+
 public class DBManager {
 	private static DBManager instance = null;
 	static DBSource dataSource;
@@ -28,6 +34,10 @@ public class DBManager {
 	
 	public static DBSource getDataSource() {
 		return dataSource;
+	}
+	
+	public StudenteDAO studenteDAO() {
+		return new StudenteDAOJDBC(dataSource);
 	}
 
 }
