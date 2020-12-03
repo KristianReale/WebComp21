@@ -1,7 +1,5 @@
 package it.unical.mat.webcomp21.segreteria;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 import model.Studente;
