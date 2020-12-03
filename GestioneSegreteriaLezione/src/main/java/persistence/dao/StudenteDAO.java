@@ -1,5 +1,10 @@
 package persistence.dao;
 
+
+import java.util.List;
+
+import model.Studente;
+
 public interface StudenteDAO {
 	public void save(Studente studente);  // Create
 	public Studente findByPrimaryKey(String matricola);     // Retrieve
