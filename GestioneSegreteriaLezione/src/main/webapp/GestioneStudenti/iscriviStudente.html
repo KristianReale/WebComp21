@@ -11,31 +11,30 @@
 <body>
 Iscrivi uno studente
 
-<form class="container" method="GET" action="effettuaIscrizione">
+<form class="container" method="POST" action="GestioneStudenti/faiIscrizione">
 	<div class="form-group">
 		<label for="matricola" class="mr-sm-2">Inserisci matricola</label>
-		<input class="form-control" type="text" id="matricola" />
+		<input class="form-control" type="text" id="matricola" name="matricola" />
 	</div>
 	
 	<div class="form-group">
 		<label for="cognome" class="mr-sm-2">Inserisci cognome</label>
-		<input class="form-control" type="text" id="cognome" />
+		<input class="form-control" type="text" id="cognome" name="cognome" />
 	</div>
 	
 	<div class="form-group">
 		<label for="nome" class="mr-sm-2">Inserisci nome</label>
-		<input class="form-control" type="text" id="nome" />
+		<input class="form-control" type="text" id="nome" name="nome"/>
 	</div>
 	
 	<div class="form-group">
 		<label for="luogonascita" class="mr-sm-2">Luogo di nascita</label>
-		<input class="form-control" type="text" id="luogonascita"/>
+		<input class="form-control" type="text" id="luogonascita" name="luogonascita"/>
 	</div>
 	
 	<div class="form-group">
 		<label for="datanascita" class="mr-sm-2">Date di nascita</label>
-		<input class="form-control" type="datetime-local" id="datanascita">
-	</div>
+		<input class="form-control" type="datetime-local" id="datanascita" name="datanascita">
 	
 	<button class="btn btn-warning">Verifica dati inseriti</button>
 	<input class="btn btn-success" value="Iscrivi studente" type="submit"/>
