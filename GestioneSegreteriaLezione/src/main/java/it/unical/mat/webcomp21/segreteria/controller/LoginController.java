@@ -12,6 +12,17 @@ public class LoginController {
 		System.out.println(username);
 		System.out.println(password);
 		
-		return "loginSuccess";
+		if (loginOk(username, password)) {		
+			return "loginSuccess";
+		}else {
+			return "loginError";
+		}
+	}
+	
+	private boolean loginOk(String username, String password) {
+		if (username.equals("admin") && password.equals("admin")) {
+			return true;
+		}
+		return false;
 	}
 }

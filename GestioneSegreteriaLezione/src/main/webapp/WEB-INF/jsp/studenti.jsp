@@ -34,33 +34,7 @@ Elenco studenti
 				<td>${stud.cognome}</td>
 				<td>${stud.nome}</td>				
 			</tr>
-		</c:forEach>
-	<!-- 
-		<tr class="table-primary">
-			<td>123456</td>
-			<td>Rossi</td>
-			<td>Mario</td>
-			<td>mario@unical.it</td>
-		</tr>
-		<tr>
-			<td>34562</td>
-			<td>Bianchi</td>
-			<td>Bruno</td>
-			<td>bruno@unical.it</td>
-		</tr>
-		<tr>
-			<td>76443</td>
-			<td>Verdi</td>
-			<td>Giulio</td>
-			<td>giulio@unical.it</td>
-		</tr>
-		<tr class="table-success">
-			<td>66444</td>
-			<td>Neri</td>
-			<td>Marco</td>
-			<td>marco@unical.it</td>
-		</tr>
-		 -->
+		</c:forEach>	
 	</tbody>
 </table>
 </div>
