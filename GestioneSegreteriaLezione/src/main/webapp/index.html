@@ -108,29 +108,29 @@
 	
 	<div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
-	  	<form method="POST" action="sdf">
-	    <div class="modal-content">
-	      <div class="modal-header text-center">
-	        <h4 class="modal-title">Login</h4>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          
-	        </button>
-	      </div>
-	      <div class="modal-body mx-3">
-	        <div class="md-form mb-5">          
-	          <input type="text" id="form3" class="form-control">
-	          <label  for="form3">Your name</label>
-	        </div>
-	
-	        <div class="md-form mb-4">          
-	          <input type="email" id="form2" class="form-control">
-	          <label for="form2">Your email</label>
-	        </div>
-	
-	      </div>
-	      <div class="modal-footer justify-content-center">
-	        <input type="submit" class="btn btn-success" value="Send"> </input>
-	      </div>
-	    </div>
+		 <form method="POST" action="doLogin">
+		    <div class="modal-content">
+		      <div class="modal-header text-center">
+		        <h4 class="modal-title">Login</h4>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          
+		        </button>
+		      </div>
+		      <div class="modal-body mx-3">
+		        <div class="md-form mb-5">          
+		          <input type="text" id="form3" class="form-control" name="username">
+		          <label  for="form3">Your name</label>
+		        </div>
+		
+		        <div class="md-form mb-4">          
+		          <input type="password" id="form2" class="form-control" name="password">
+		          <label for="form2">Your password</label>
+		        </div>
+		
+		      </div>
+		      <div class="modal-footer justify-content-center">
+		        <input type="submit" class="btn btn-success" value="Send"> </input>
+		      </div>
+		    </div>
 	    </form>
 	  </div>
 	
