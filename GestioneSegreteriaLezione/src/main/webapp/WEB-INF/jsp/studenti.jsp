@@ -23,10 +23,18 @@ Elenco studenti
 			<th>Matricola</th>
 			<th>Cognome</th>
 			<th>Nome</th>
-			<th>Email</th>
+			<!-- <th>Email</th> -->
 		</tr>
 	</thead>
 	<tbody>
+		<c:forEach var="stud" items="${listStudenti}">
+			<tr>
+				<td><input type="checkbox" id="${stud.matricola}" name="${stud.matricola}" value="${stud.matricola}"></td>
+				<td>${stud.matricola}</td>
+				<td>${stud.cognome}</td>
+				<td>${stud.nome}</td>				
+			</tr>
+		</c:forEach>
 	<!-- 
 		<tr class="table-primary">
 			<td>123456</td>

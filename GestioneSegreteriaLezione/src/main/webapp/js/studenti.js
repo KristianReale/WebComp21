@@ -8,8 +8,8 @@ function Studente(matricola, cognome, nome, email){
 //window.addEventListener("load", inizializza));
 
 window.addEventListener("load", function(){
-	inizializzaDati();
-	popolaTabella();
+	//inizializzaDati();
+	//popolaTabella();
 	registraEventi();	
 });
 
