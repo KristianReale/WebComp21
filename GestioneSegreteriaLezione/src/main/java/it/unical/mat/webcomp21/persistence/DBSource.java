@@ -1,4 +1,4 @@
-package persistence;
+package it.unical.mat.webcomp21.persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

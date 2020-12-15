@@ -10,6 +10,8 @@ public class StudentiController {
 	
 	@GetMapping("GestioneStudenti/studenti.html")
 	public String dammiStudenti() {
+//		ArrayList<Studente>
+		
 		return "studenti";
 	}
 	

@@ -1,10 +1,10 @@
-package persistence;
+package it.unical.mat.webcomp21.persistence;
 
 import java.util.List;
 
-import model.Studente;
-import persistence.dao.StudenteDAO;
-import persistence.dao.jdbc.StudenteDAOJDBC;
+import it.unical.mat.webcomp21.model.Studente;
+import it.unical.mat.webcomp21.persistence.dao.StudenteDAO;
+import it.unical.mat.webcomp21.persistence.dao.jdbc.StudenteDAOJDBC;
 
 public class DBManager {
 	private static DBManager instance = null;

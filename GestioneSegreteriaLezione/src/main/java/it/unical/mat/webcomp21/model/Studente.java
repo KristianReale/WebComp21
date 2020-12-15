@@ -1,4 +1,4 @@
-package model;
+package it.unical.mat.webcomp21.model;
 
 public class Studente {
 	String matricola;

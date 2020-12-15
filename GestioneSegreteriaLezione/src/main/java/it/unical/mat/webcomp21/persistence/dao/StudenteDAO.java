@@ -1,9 +1,9 @@
-package persistence.dao;
+package it.unical.mat.webcomp21.persistence.dao;
 
 
 import java.util.List;
 
-import model.Studente;
+import it.unical.mat.webcomp21.model.Studente;
 
 public interface StudenteDAO {
 	public void save(Studente studente);  // Create

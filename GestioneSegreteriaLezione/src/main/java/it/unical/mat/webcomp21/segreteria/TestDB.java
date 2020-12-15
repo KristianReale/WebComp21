@@ -2,9 +2,9 @@ package it.unical.mat.webcomp21.segreteria;
 
 import java.util.List;
 
-import model.Studente;
-import persistence.DBManager;
-import persistence.dao.StudenteDAO;
+import it.unical.mat.webcomp21.model.Studente;
+import it.unical.mat.webcomp21.persistence.DBManager;
+import it.unical.mat.webcomp21.persistence.dao.StudenteDAO;
 
 public class TestDB {
 	public static void main(String[] args) {

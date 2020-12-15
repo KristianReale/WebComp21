@@ -1,4 +1,4 @@
-package persistence.dao.jdbc;
+package it.unical.mat.webcomp21.persistence.dao.jdbc;
 
 import java.rmi.StubNotFoundException;
 import java.sql.Connection;
@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Studente;
-import persistence.DBSource;
-import persistence.dao.StudenteDAO;
+import it.unical.mat.webcomp21.model.Studente;
+import it.unical.mat.webcomp21.persistence.DBSource;
+import it.unical.mat.webcomp21.persistence.dao.StudenteDAO;
 
 public class StudenteDAOJDBC implements StudenteDAO{
 	DBSource dbSource;
