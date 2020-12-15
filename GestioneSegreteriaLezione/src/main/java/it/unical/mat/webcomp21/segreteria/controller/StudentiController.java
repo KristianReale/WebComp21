@@ -1,6 +1,7 @@
 package it.unical.mat.webcomp21.segreteria.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.unical.mat.webcomp21.model.Studente;
+import it.unical.mat.webcomp21.persistence.DBManager;
 
 @Controller
 public class StudentiController {
@@ -19,27 +21,13 @@ public class StudentiController {
 	public String dammiStudenti(HttpSession session, Model model) {
 		
 		if (checkAutorized((String)session.getAttribute("usernameLogged"))) {
-			ArrayList<Studente> listaStudenti = new ArrayList<Studente>();
+			List<Studente> listaStudenti = new ArrayList<Studente>();
 			
-			Studente s1 = new Studente();
-			s1.setMatricola("123456");
-			s1.setNome("Mario");
-			s1.setCognome("Bianchi");
-			
-			Studente s2 = new Studente();
-			s2.setMatricola("56789");
-			s2.setNome("Bruno");
-			s2.setCognome("Verdi");
-			
-			Studente s3 = new Studente();
-			s3.setMatricola("345345");
-			s3.setNome("Giorgio");
-			s3.setCognome("Rossi");
-			
-			listaStudenti.add(s1);
-			listaStudenti.add(s2);
-			listaStudenti.add(s3);
-			
+			listaStudenti = DBManager.getInstance().studenteDAO().findAll();
+//			Studente s = DBManager.getInstance().studenteDAO().findByPrimaryKey("554344");
+//			if (s != null) {
+//				listaStudenti.add(s);
+//			}
 			model.addAttribute("listStudenti", listaStudenti);
 			
 			return "studenti";

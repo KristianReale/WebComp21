@@ -2,6 +2,7 @@ package it.unical.mat.webcomp21.persistence.dao.jdbc;
 
 import java.rmi.StubNotFoundException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,8 +28,32 @@ public class StudenteDAOJDBC implements StudenteDAO{
 
 	@Override
 	public Studente findByPrimaryKey(String matricola) {
-		// TODO Auto-generated method stub
-		return null;
+		Studente studente = null;
+		
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "select * from studente where matricola=?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, matricola);
+			ResultSet rs = st.executeQuery();
+			if (rs.next()) {
+				String matr = rs.getString("matricola");
+				String cogn = rs.getString("cognome");
+				String nome = rs.getString("nome");
+				String dataNascita = rs.getString("datanascita");
+				
+				studente = new Studente();
+				studente.setNome(nome);
+				studente.setCognome(cogn);
+				studente.setMatricola(matr);
+				studente.setDataNascita(dataNascita);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return studente;
 	}
 
 	@Override
@@ -57,11 +82,9 @@ public class StudenteDAOJDBC implements StudenteDAO{
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		// TODO Auto-generated method stub
 		return studenti;
 	}
 

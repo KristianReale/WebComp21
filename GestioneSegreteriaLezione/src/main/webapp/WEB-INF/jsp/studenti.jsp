@@ -14,6 +14,7 @@
 	<script src="/js/studenti.js"></script>
 </head>
 <body>
+
 Elenco studenti
 <div class="table-responsive">
 <table id="tblStudenti" class="table table-striped table-bordered table-hover table-sm">

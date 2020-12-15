@@ -14,7 +14,7 @@ public class DBManager {
 		try {
 			Class.forName("org.postgresql.Driver");
 			//questi vanno messi in file di configurazione!!!	
-			dataSource=new DBSource("jdbc:postgresql://localhost:54321/WebCompDB","postgres","postgres");
+			dataSource=new DBSource("jdbc:postgresql://localhost:5432/Nuovo","postgres","postgres");
 		} 
 		catch (Exception e) {
 			System.err.println("PostgresDAOFactory.class: failed to load MySQL JDBC driver\n"+e);
