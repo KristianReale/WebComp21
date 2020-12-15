@@ -3,7 +3,9 @@ package it.unical.mat.webcomp21.persistence;
 import java.util.List;
 
 import it.unical.mat.webcomp21.model.Studente;
+import it.unical.mat.webcomp21.persistence.dao.CorsoDiLaureaDAO;
 import it.unical.mat.webcomp21.persistence.dao.StudenteDAO;
+import it.unical.mat.webcomp21.persistence.dao.jdbc.CorsoDiLaureaDAOJDBC;
 import it.unical.mat.webcomp21.persistence.dao.jdbc.StudenteDAOJDBC;
 
 public class DBManager {
@@ -38,6 +40,10 @@ public class DBManager {
 	
 	public StudenteDAO studenteDAO() {
 		return new StudenteDAOJDBC(dataSource);
+	}
+	
+	public CorsoDiLaureaDAO corsoDiLaureaDAO() {
+		return new CorsoDiLaureaDAOJDBC(dataSource);
 	}
 
 }

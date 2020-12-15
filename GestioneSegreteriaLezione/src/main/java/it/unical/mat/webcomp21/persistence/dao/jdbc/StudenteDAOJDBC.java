@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unical.mat.webcomp21.model.Studente;
+import it.unical.mat.webcomp21.persistence.DBManager;
 import it.unical.mat.webcomp21.persistence.DBSource;
 import it.unical.mat.webcomp21.persistence.dao.StudenteDAO;
 
@@ -22,7 +23,26 @@ public class StudenteDAOJDBC implements StudenteDAO{
 	
 	@Override
 	public void save(Studente studente) {
-		// TODO Auto-generated method stub
+		Connection conn;
+		try {
+			conn = dbSource.getConnection();
+			String queryUpdate = "INSERT INTO studente values(?, ?, ?, ?, ?, ?)";
+			PreparedStatement st = conn.prepareStatement(queryUpdate);
+			st.setString(1, studente.getMatricola());
+			st.setString(2, studente.getNome());
+			st.setString(3, studente.getCognome());
+			st.setString(4, studente.getDataNascita());
+			st.setLong(5, studente.getScuola().getId());
+			
+//			DBManager.getInstance()
+			//studente.get
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
