@@ -7,8 +7,6 @@ public class CorsoDiLaurea {
 	String nome;
 	ArrayList<Studente> studenti;
 	
-//	HashMap<String, Studente> studenti;
-	
 	public int getId() {
 		return id;
 	}
