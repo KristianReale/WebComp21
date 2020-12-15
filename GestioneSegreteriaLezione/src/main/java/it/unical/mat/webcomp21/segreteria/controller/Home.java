@@ -6,11 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class Hello {
+public class Home {
 
 	@GetMapping("/hello")
 	@ResponseBody
 	public String helloWorld() {
 		return "<strong>Hello World!!</strong>";
+	}
+	
+	@GetMapping("/")	
+	public String home() {
+		return "index";
 	}
 }

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,12 +29,20 @@
 		</div>
 		
 		<div class="col-lg-4 col-md-4">
-			<a href="" data-toggle="modal" data-target="#modalSubscriptionForm">Login</a>
+			<c:if test="${usernameLogged == null}"> 
+				<a href="" data-toggle="modal" data-target="#modalSubscriptionForm">Login</a>
+			</c:if>
+			<c:if test="${usernameLogged != null}"> 
+				Utente loggato: ${usernameLogged}
+				<a href="doLogout">Logout</a>
+			</c:if>
 		</div>
 	</div>
+	<!-- 
 	<figure class="assoluta">
 			<img src="images/logo_unical.png" />
 		</figure>
+		 -->
 	
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 	  <!-- Links -->
