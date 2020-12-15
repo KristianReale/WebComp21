@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unical.mat.webcomp21.model.CorsoDiLaurea;
 import it.unical.mat.webcomp21.model.Studente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 import it.unical.mat.webcomp21.persistence.DBSource;
@@ -34,10 +35,10 @@ public class StudenteDAOJDBC implements StudenteDAO{
 			st.setString(4, studente.getDataNascita());
 			st.setLong(5, studente.getScuola().getId());
 			
-//			DBManager.getInstance()
-			//studente.get
+			CorsoDiLaurea cdl = dammiCorsoDiLaureaDiStudente(studente);
+			st.setLong(6, cdl.getId());		
 			
-			
+			st.executeUpdate();					
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -118,6 +119,19 @@ public class StudenteDAOJDBC implements StudenteDAO{
 	public void delete(Studente studente) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public CorsoDiLaurea dammiCorsoDiLaureaDiStudente(Studente studente) {
+		List<CorsoDiLaurea> cdls = DBManager.getInstance().corsoDiLaureaDAO().findAll();
+		for (CorsoDiLaurea cdl : cdls) {
+			for (Studente s : cdl.getStudenti()) {
+				if (s.getMatricola().equals(studente.getMatricola())){
+					return cdl;
+				}
+			}
+		}
+		return null;
 	}
 
 }
