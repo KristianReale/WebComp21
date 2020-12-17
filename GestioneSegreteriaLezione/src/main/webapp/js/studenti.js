@@ -90,7 +90,7 @@ function iscriviStudente(){
 	$.ajax({
 		url: "iscriviStudente",
 		method: "POST",
-		data: {matr: matr, cognome: cogn, nome: nome, date:date, scuola:scuola},
+		data: {matr: matr, cognome: cogn, nome: nome, date:date, scuolaId:scuola},
 		success: function(response){
 			alert(response);
 		},

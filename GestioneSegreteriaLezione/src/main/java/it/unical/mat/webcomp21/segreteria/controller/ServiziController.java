@@ -13,7 +13,6 @@ import it.unical.mat.webcomp21.persistence.DBManager;
 @RestController
 public class ServiziController {
 	
-//	matricola: matr, cognome: cogn, nome: nome, date:date
 	
 	@PostMapping("GestioneStudenti/iscriviStudente")
 	public String iscriviStudente(@RequestParam(value="matr") String matricola, String cognome, String nome,
