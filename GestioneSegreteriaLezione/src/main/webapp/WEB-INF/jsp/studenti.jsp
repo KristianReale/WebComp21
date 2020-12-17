@@ -25,6 +25,7 @@ Elenco studenti
 			<th>Cognome</th>
 			<th>Nome</th>
 			<th>Data di Nascita</th>
+			<th>Scuola di diploma</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -34,7 +35,8 @@ Elenco studenti
 				<td>${stud.matricola}</td>
 				<td>${stud.cognome}</td>
 				<td>${stud.nome}</td>
-				<td>${stud.dataNascita}</td>				
+				<td>${stud.dataNascita}</td>
+				<td>${stud.scuola.id}</td>				
 			</tr>
 		</c:forEach>	
 	</tbody>
@@ -76,6 +78,11 @@ Elenco studenti
 			<div class="form-group">
 				<label for="date">Data di Nascita:</label> <input type="date"
 					class="form-control" placeholder="Enter Date" id="date">
+			</div>
+			
+			<div class="form-group">
+				<label for="school">Id Scuola:</label> <input type="text"
+					class="form-control" placeholder="Enter School id" id="school">
 			</div>
 			
 		</form>

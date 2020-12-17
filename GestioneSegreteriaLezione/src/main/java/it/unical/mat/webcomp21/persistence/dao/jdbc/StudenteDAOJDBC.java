@@ -1,6 +1,5 @@
 package it.unical.mat.webcomp21.persistence.dao.jdbc;
 
-import java.rmi.StubNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

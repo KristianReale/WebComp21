@@ -85,21 +85,23 @@ function iscriviStudente(){
 	var cogn = document.querySelector("#cognome").value;
 	var nome = document.querySelector("#nome").value;
 	var date = document.querySelector("#date").value;
+	var scuola = document.querySelector("#school").value;
 	
 	$.ajax({
 		url: "iscriviStudente",
-		data: {matricola: matr, cognome: cogn, nome: nome, date:date},
+		method: "POST",
+		data: {matr: matr, cognome: cogn, nome: nome, date:date, scuola:scuola},
 		success: function(response){
-			
+			alert(response);
 		},
 		fail: function( jqXHR, textStatus ) {
   			alert( "Request failed: " + textStatus );
 		}
 	});
 	
-	var studente = new Studente(matricola, cognome, nome, email);
+	//var studente = new Studente(matricola, cognome, nome, email);
 	
-	aggiungiStudente(studente);
+	//aggiungiStudente(studente);
 }
 
 function aggiungiStudente(studente, salvaInArray = true){
