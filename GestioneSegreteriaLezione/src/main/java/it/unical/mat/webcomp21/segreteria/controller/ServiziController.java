@@ -14,36 +14,34 @@ import it.unical.mat.webcomp21.persistence.DBManager;
 @RequestMapping("GestioneStudenti")
 public class ServiziController {
 	
-	@PostMapping("/iscriviStudente")
-	public Studente iscriviStudente(@RequestParam(value="matr") String matricola, String cognome, String nome,
-								String date, int scuolaId) {
-		Studente stud = new Studente();
-		stud.setMatricola(matricola);
-		stud.setCognome(cognome);
-		stud.setNome(nome);
-		stud.setDataNascita(date);
-		
-		Scuola scuola = DBManager.getInstance().scuolaDAO().findByPrimaryKey(scuolaId);
-		stud.setScuola(scuola);					
-		
-		DBManager.getInstance().studenteDAO().save(stud);				
-
-		return stud;
-	}
-	
-	@PostMapping("/iscriviStudenteObj")
-	public Studente iscriviStudenteObj(@RequestBody Studente studente) {
+//	@PostMapping("/iscriviStudente")
+//	public Studente iscriviStudente(@RequestParam(value="matr") String matricola, String cognome, String nome,
+//								String date, int scuolaId) {
 //		Studente stud = new Studente();
 //		stud.setMatricola(matricola);
 //		stud.setCognome(cognome);
 //		stud.setNome(nome);
 //		stud.setDataNascita(date);
+//		
 //		Scuola scuola = DBManager.getInstance().scuolaDAO().findByPrimaryKey(scuolaId);
-//		studente.setScuola(scuola);					
-		
+//		stud.setScuola(scuola);					
+//		
+//		DBManager.getInstance().studenteDAO().save(stud);				
+//
+//		return stud;
+//	}
+	
+	@PostMapping("/iscriviStudente")
+	public Studente iscriviStudente(@RequestBody Studente studente) {
 		DBManager.getInstance().studenteDAO().save(studente);				
 
 		return studente;
+	}
+	
+	@PostMapping("/dammiScuola")
+	public Scuola dammiScuola(@RequestParam int scuolaId) {
+		Scuola scuola = DBManager.getInstance().scuolaDAO().findByPrimaryKey(scuolaId);
+		return scuola;				
 	}
 	
 }

@@ -88,25 +88,34 @@ function iscriviStudente(){
 	var date = document.querySelector("#date").value;
 	var scuola = document.querySelector("#school").value;
 	
-	var studente = new Studente(matr, cogn, nome, date, scuola);
 	
 	$.ajax({
-		url: "iscriviStudenteObj",
+		url: "dammiScuola",
 		method: "POST",
-		data: studente,
-		contentType: "json",
-		success: function(response){
-			console.log(JSON.stringify(response));
-			/*
-			if (response === "SUCCESS"){
-				
-				aggiungiStudente(studente);
-			}*/
+		data: {scuolaId : scuola},
+		success: function(responseScuola){
+			var studente = new Studente(matr, cogn, nome, date, responseScuola);
+			$.ajax({
+				url: "iscriviStudente",
+				method: "POST",
+				data: JSON.stringify(studente),
+				contentType: "application/json",
+				success: function(response){
+					if (response != null){
+						aggiungiStudente(response);
+					}
+				},
+				fail: function( jqXHR, textStatus ) {
+		  			alert( "Request failed: " + textStatus );
+				}
+			});
 		},
 		fail: function( jqXHR, textStatus ) {
   			alert( "Request failed: " + textStatus );
 		}
 	});	
+	
+		
 }
 
 function aggiungiStudente(studente, salvaInArray = true){
@@ -133,7 +142,7 @@ function aggiungiStudente(studente, salvaInArray = true){
 	cellDataNascita.textContent = studente.dataNascita;
 	
 	var cellScuola = row.insertCell(5);
-	cellScuola.textContent = studente.scuola;
+	cellScuola.textContent = studente.scuola.id;
 }
 
 
