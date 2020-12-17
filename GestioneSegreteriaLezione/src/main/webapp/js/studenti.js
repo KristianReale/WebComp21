@@ -1,8 +1,9 @@
-function Studente(matricola, cognome, nome, email){
+function Studente(matricola, cognome, nome, dataNascita, scuola){
 	this.matricola = matricola;
 	this.cognome = cognome;
 	this.nome = nome;
-	this.email = email;
+	this.dataNascita = dataNascita;
+	this.scuola = scuola;
 }
 
 //window.addEventListener("load", inizializza));
@@ -96,12 +97,11 @@ function iscriviStudente(){
 				var studente = new Studente(matr, cogn, nome, date, scuola);
 				aggiungiStudente(studente);
 			}
-			alert(response);
 		},
 		fail: function( jqXHR, textStatus ) {
   			alert( "Request failed: " + textStatus );
 		}
-	});
+	});	
 }
 
 function aggiungiStudente(studente, salvaInArray = true){
@@ -124,8 +124,11 @@ function aggiungiStudente(studente, salvaInArray = true){
 	var cellNome = row.insertCell(3);
 	cellNome.textContent = studente.nome;
 	
-	var cellEmail = row.insertCell(4);
-	cellEmail.textContent = studente.email;
+	var cellDataNascita = row.insertCell(4);
+	cellDataNascita.textContent = studente.dataNascita;
+	
+	var cellScuola = row.insertCell(5);
+	cellScuola.textContent = studente.scuola;
 }
 
 
