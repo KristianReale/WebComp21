@@ -88,15 +88,20 @@ function iscriviStudente(){
 	var date = document.querySelector("#date").value;
 	var scuola = document.querySelector("#school").value;
 	
+	var studente = new Studente(matr, cogn, nome, date, scuola);
+	
 	$.ajax({
-		url: "iscriviStudente",
+		url: "iscriviStudenteObj",
 		method: "POST",
-		data: {matr: matr, cognome: cogn, nome: nome, date:date, scuolaId:scuola},
+		data: studente,
+		contentType: "json",
 		success: function(response){
+			console.log(JSON.stringify(response));
+			/*
 			if (response === "SUCCESS"){
-				var studente = new Studente(matr, cogn, nome, date, scuola);
+				
 				aggiungiStudente(studente);
-			}
+			}*/
 		},
 		fail: function( jqXHR, textStatus ) {
   			alert( "Request failed: " + textStatus );

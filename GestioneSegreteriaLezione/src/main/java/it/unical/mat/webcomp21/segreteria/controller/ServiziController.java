@@ -1,8 +1,8 @@
 package it.unical.mat.webcomp21.segreteria.controller;
 
-import java.util.Date;
-
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,17 +11,12 @@ import it.unical.mat.webcomp21.model.Studente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 
 @RestController
+@RequestMapping("GestioneStudenti")
 public class ServiziController {
 	
-	@PostMapping("GestioneStudenti/iscriviStudente")
-	public String iscriviStudente(@RequestParam(value="matr") String matricola, String cognome, String nome,
+	@PostMapping("/iscriviStudente")
+	public Studente iscriviStudente(@RequestParam(value="matr") String matricola, String cognome, String nome,
 								String date, int scuolaId) {
-//		System.out.println(matricola);
-//		System.out.println(cognome);
-//		System.out.println(nome);
-//		System.out.println(date);
-//		System.out.println(scuolaId);
-		
 		Studente stud = new Studente();
 		stud.setMatricola(matricola);
 		stud.setCognome(cognome);
@@ -33,6 +28,22 @@ public class ServiziController {
 		
 		DBManager.getInstance().studenteDAO().save(stud);				
 
-		return "SUCCESS";
+		return stud;
 	}
+	
+	@PostMapping("/iscriviStudenteObj")
+	public Studente iscriviStudenteObj(@RequestBody Studente studente) {
+//		Studente stud = new Studente();
+//		stud.setMatricola(matricola);
+//		stud.setCognome(cognome);
+//		stud.setNome(nome);
+//		stud.setDataNascita(date);
+//		Scuola scuola = DBManager.getInstance().scuolaDAO().findByPrimaryKey(scuolaId);
+//		studente.setScuola(scuola);					
+		
+		DBManager.getInstance().studenteDAO().save(studente);				
+
+		return studente;
+	}
+	
 }

@@ -6,7 +6,7 @@ public class Studente {
 	String nome;
 	String dataNascita;
 	Scuola scuola;
-	
+		
 	public Scuola getScuola() {
 		return scuola;
 	}
