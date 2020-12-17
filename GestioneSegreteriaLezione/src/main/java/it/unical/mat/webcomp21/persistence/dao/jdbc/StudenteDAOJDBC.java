@@ -35,8 +35,12 @@ public class StudenteDAOJDBC implements StudenteDAO{
 			st.setLong(5, studente.getScuola().getId());
 			
 			CorsoDiLaurea cdl = dammiCorsoDiLaureaDiStudente(studente);
-			st.setLong(6, cdl.getId());		
-			
+			if (cdl != null) {
+				st.setLong(6, cdl.getId());
+			}else {
+				st.setObject(6, null);
+			}
+					
 			st.executeUpdate();					
 			
 		} catch (SQLException e) {

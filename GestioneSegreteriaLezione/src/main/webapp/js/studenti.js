@@ -92,6 +92,10 @@ function iscriviStudente(){
 		method: "POST",
 		data: {matr: matr, cognome: cogn, nome: nome, date:date, scuolaId:scuola},
 		success: function(response){
+			if (response === "SUCCESS"){
+				var studente = new Studente(matr, cogn, nome, date, scuola);
+				aggiungiStudente(studente);
+			}
 			alert(response);
 		},
 		fail: function( jqXHR, textStatus ) {
@@ -99,9 +103,7 @@ function iscriviStudente(){
 		}
 	});
 	
-	//var studente = new Studente(matricola, cognome, nome, email);
-	
-	//aggiungiStudente(studente);
+
 }
 
 function aggiungiStudente(studente, salvaInArray = true){

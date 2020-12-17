@@ -42,7 +42,7 @@ public class CorsoDiLaureaDAOJDBC implements CorsoDiLaureaDAO{
 			String query = "select * from studente where corsodilaurea = ?";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setInt(1, cdlId);
-			ResultSet rs = st.executeQuery(query);
+			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
 				String matr = rs.getString("matricola");
 				String cogn = rs.getString("cognome");
