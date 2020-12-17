@@ -102,8 +102,6 @@ function iscriviStudente(){
   			alert( "Request failed: " + textStatus );
 		}
 	});
-	
-
 }
 
 function aggiungiStudente(studente, salvaInArray = true){

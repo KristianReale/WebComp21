@@ -13,7 +13,6 @@ import it.unical.mat.webcomp21.persistence.DBManager;
 @RestController
 public class ServiziController {
 	
-	
 	@PostMapping("GestioneStudenti/iscriviStudente")
 	public String iscriviStudente(@RequestParam(value="matr") String matricola, String cognome, String nome,
 								String date, int scuolaId) {
@@ -33,7 +32,7 @@ public class ServiziController {
 		stud.setScuola(scuola);					
 		
 		DBManager.getInstance().studenteDAO().save(stud);				
-		
+
 		return "SUCCESS";
 	}
 }
