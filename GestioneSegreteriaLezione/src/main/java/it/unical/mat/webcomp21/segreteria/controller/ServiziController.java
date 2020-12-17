@@ -17,12 +17,12 @@ public class ServiziController {
 	
 	@PostMapping("GestioneStudenti/iscriviStudente")
 	public String iscriviStudente(@RequestParam(value="matr") String matricola, String cognome, String nome,
-								String date, int scuola) {
+								String date, int scuolaId) {
 		System.out.println(matricola);
 		System.out.println(cognome);
 		System.out.println(nome);
 		System.out.println(date);
-		System.out.println(scuola);
+		System.out.println(scuolaId);
 		
 		Studente stud = new Studente();
 		stud.setMatricola(matricola);
@@ -30,8 +30,8 @@ public class ServiziController {
 		stud.setNome(nome);
 		stud.setDataNascita(date);
 		
-		Scuola scuolaObj = null;// dal dao;
-		stud.setScuola(scuolaObj);					
+		Scuola scuola = DBManager.getInstance().scuolaDAO().findByPrimaryKey(scuolaId);
+		stud.setScuola(scuola);					
 		
 		DBManager.getInstance().studenteDAO().save(stud);				
 		

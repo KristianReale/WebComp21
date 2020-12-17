@@ -4,8 +4,10 @@ import java.util.List;
 
 import it.unical.mat.webcomp21.model.Studente;
 import it.unical.mat.webcomp21.persistence.dao.CorsoDiLaureaDAO;
+import it.unical.mat.webcomp21.persistence.dao.ScuolaDAO;
 import it.unical.mat.webcomp21.persistence.dao.StudenteDAO;
 import it.unical.mat.webcomp21.persistence.dao.jdbc.CorsoDiLaureaDAOJDBC;
+import it.unical.mat.webcomp21.persistence.dao.jdbc.ScuolaDAOJDBC;
 import it.unical.mat.webcomp21.persistence.dao.jdbc.StudenteDAOJDBC;
 
 public class DBManager {
@@ -44,6 +46,10 @@ public class DBManager {
 	
 	public CorsoDiLaureaDAO corsoDiLaureaDAO() {
 		return new CorsoDiLaureaDAOJDBC(dataSource);
+	}
+	
+	public ScuolaDAO scuolaDAO() {
+		return new ScuolaDAOJDBC(dataSource);
 	}
 
 }
