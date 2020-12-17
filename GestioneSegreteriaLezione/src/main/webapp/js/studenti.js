@@ -81,10 +81,21 @@ function nascondiStudente(){
 function iscriviStudente(){
 	// var bottone = document.querySelector("#btnIscrivi");
 	
-	var matricola = document.querySelector("#matricola").value;			
-	var cognome = document.querySelector("#cognome").value;
+	var matr = document.querySelector("#matricola").value;				
+	var cogn = document.querySelector("#cognome").value;
 	var nome = document.querySelector("#nome").value;
-	var email = document.querySelector("#email").value;
+	var date = document.querySelector("#date").value;
+	
+	$.ajax({
+		url: "iscriviStudente",
+		data: {matricola: matr, cognome: cogn, nome: nome, date:date},
+		success: function(response){
+			
+		},
+		fail: function( jqXHR, textStatus ) {
+  			alert( "Request failed: " + textStatus );
+		}
+	});
 	
 	var studente = new Studente(matricola, cognome, nome, email);
 	

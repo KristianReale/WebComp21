@@ -24,7 +24,7 @@ Elenco studenti
 			<th>Matricola</th>
 			<th>Cognome</th>
 			<th>Nome</th>
-			<!-- <th>Email</th> -->
+			<th>Data di Nascita</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -33,7 +33,8 @@ Elenco studenti
 				<td><input type="checkbox" id="${stud.matricola}" name="${stud.matricola}" value="${stud.matricola}"></td>
 				<td>${stud.matricola}</td>
 				<td>${stud.cognome}</td>
-				<td>${stud.nome}</td>				
+				<td>${stud.nome}</td>
+				<td>${stud.dataNascita}</td>				
 			</tr>
 		</c:forEach>	
 	</tbody>
@@ -73,8 +74,8 @@ Elenco studenti
 			</div>
 			
 			<div class="form-group">
-				<label for="email">Indirizzo Email:</label> <input type="email"
-					class="form-control" placeholder="Enter email" id="email">
+				<label for="date">Data di Nascita:</label> <input type="date"
+					class="form-control" placeholder="Enter Date" id="date">
 			</div>
 			
 		</form>
