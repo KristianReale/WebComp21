@@ -37,14 +37,15 @@ public class StudentiController {
 	}
 	
 	private boolean checkAutorized(String username) {
-		if (username != null) {
-			//C'e' qualcuno loggato
-			if (username.equals("admin")) {
-				//E' l'admin
-				return true;
-			}
-		}
-		return false;
+//		if (username != null) {
+//			//C'e' qualcuno loggato
+//			if (username.equals("admin")) {
+//				//E' l'admin
+//				return true;
+//			}
+//		}
+//		return false;
+		return true;
 	}
 	
 	@PostMapping("GestioneStudenti/faiIscrizione")

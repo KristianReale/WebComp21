@@ -88,18 +88,19 @@ function iscriviStudente(){
 	
 	$.ajax({
 		url: "iscriviStudente",
+		method: "POST",
 		data: {matricola: matr, cognome: cogn, nome: nome, date:date},
 		success: function(response){
-			
+			alert(response);
 		},
 		fail: function( jqXHR, textStatus ) {
   			alert( "Request failed: " + textStatus );
 		}
 	});
 	
-	var studente = new Studente(matricola, cognome, nome, email);
+	//var studente = new Studente(matricola, cognome, nome, email);
 	
-	aggiungiStudente(studente);
+	//aggiungiStudente(studente);
 }
 
 function aggiungiStudente(studente, salvaInArray = true){
