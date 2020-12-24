@@ -21,34 +21,79 @@ public class CorsoDiLaureaDAOJDBC implements CorsoDiLaureaDAO{
 		this.dbSource = dbSource;
 	}
 
-	@Override
-	public void save(CorsoDiLaurea cdl) {
-		// TODO Auto-generated method stub
-		
+	public void save(CorsoDiLaurea corsoDiLaurea) {
+		Connection connection = null;
+		try {
+			connection = this.dbSource.getConnection();
+			Long id = IdBroker.getId(connection);
+			corsoDiLaurea.setId(id); 
+			String insert = "insert into corsodilaurea(id, nome) values (?,?)";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setLong(1, corsoDiLaurea.getId());
+			statement.setString(2, corsoDiLaurea.getNome());
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			if (connection != null) {
+				try {
+					connection.rollback();
+				} catch(SQLException excep) {
+					throw new RuntimeException(e.getMessage());
+				}
+			} 
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
 	}
 
 	@Override
-	public CorsoDiLaurea findByPrimaryKey(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public CorsoDiLaurea findByPrimaryKey(Long id) {
+		CorsoDiLaurea corsoDiLaurea = null;
+		Connection connection = null;
+		try {
+			connection = this.dbSource.getConnection();
+			PreparedStatement statement;
+			String query = "select * from corsodilaurea where id = ?";
+			statement = connection.prepareStatement(query);
+			statement.setLong(1, id);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				corsoDiLaurea = new CorsoDiLaurea();
+				corsoDiLaurea.setId(result.getLong("id"));				
+				corsoDiLaurea.setNome(result.getString("nome"));
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}	
+		return corsoDiLaurea;
 	}
 	
 	@Override
-	public ArrayList<Studente> findStudentiByCorsoDiLaureaId(int cdlId) {
+	public ArrayList<Studente> findStudentiByCorsoDiLaureaId(Long cdlId) {
 		ArrayList<Studente> studenti = new ArrayList<Studente>();
 		
 		try {
 			Connection conn = dbSource.getConnection();
 			String query = "select * from studente where corsodilaurea = ?";
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setInt(1, cdlId);
+			st.setLong(1, cdlId);
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
 				String matr = rs.getString("matricola");
 				String cogn = rs.getString("cognome");
 				String nome = rs.getString("nome");
 				String dataNascita = rs.getString("datanascita");
-				int scuolaId = rs.getInt("scuola");
+				Long scuolaId = rs.getLong("scuola");
 				
 				Studente stud = new Studente();
 				stud.setNome(nome);
@@ -78,7 +123,7 @@ public class CorsoDiLaureaDAOJDBC implements CorsoDiLaureaDAO{
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(query);
 			while (rs.next()) {
-				int id = rs.getInt("id");
+				Long id = rs.getLong("id");
 				String nome = rs.getString("nome");
 				
 				CorsoDiLaurea cdl = new CorsoDiLaurea();
@@ -97,16 +142,51 @@ public class CorsoDiLaureaDAOJDBC implements CorsoDiLaureaDAO{
 		return cdls;
 	}
 
-	@Override
-	public void update(CorsoDiLaurea cdl) {
-		// TODO Auto-generated method stub
-		
+	public void update(CorsoDiLaurea corsodilaurea) {
+		Connection connection = null;
+		try {
+			connection = this.dbSource.getConnection();
+			String update = "update corso SET nome = ? WHERE id = ?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, corsodilaurea.getNome());
+			statement.setLong(2, corsodilaurea.getId());
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			if (connection != null) {
+				try {
+					connection.rollback();
+				} catch(SQLException excep) {
+					throw new RuntimeException(e.getMessage());
+				}
+			} 
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
 	}
 
-	@Override
-	public void delete(CorsoDiLaurea cdl) {
-		// TODO Auto-generated method stub
-		
+	public void delete(CorsoDiLaurea corsoDiLaurea) {
+		Connection connection = null;
+		try {
+			connection = this.dbSource.getConnection();
+			String delete = "delete FROM corsodilaurea WHERE id = ? ";
+			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.setLong(1, corsoDiLaurea.getId());
+
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
 	}
 	
 	

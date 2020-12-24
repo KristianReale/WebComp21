@@ -1,14 +1,14 @@
 package it.unical.mat.webcomp21.model;
 
 public class Scuola {
-	int id;
+	Long id;
 	String codiceMeccanografico;
 	String nome;
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getCodiceMeccanografico() {

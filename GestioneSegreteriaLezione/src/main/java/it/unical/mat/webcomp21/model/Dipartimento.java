@@ -1,13 +1,16 @@
 package it.unical.mat.webcomp21.model;
 
+import java.util.List;
+
 public class Dipartimento {
-	int id;
+	Long id;
 	String nome;
+	List<CorsoDiLaurea> corsiDiLaurea;
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -15,5 +18,11 @@ public class Dipartimento {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public List<CorsoDiLaurea> getCorsiDiLaurea() {
+		return corsiDiLaurea;
+	}
+	public void setCorsiDiLaurea(List<CorsoDiLaurea> corsiDiLaurea) {
+		this.corsiDiLaurea = corsiDiLaurea;
 	}
 }

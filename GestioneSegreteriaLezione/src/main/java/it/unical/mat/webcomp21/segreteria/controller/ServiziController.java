@@ -39,7 +39,7 @@ public class ServiziController {
 	}
 	
 	@PostMapping("/dammiScuola")
-	public Scuola dammiScuola(@RequestParam int scuolaId) {
+	public Scuola dammiScuola(@RequestParam Long scuolaId) {
 		Scuola scuola = DBManager.getInstance().scuolaDAO().findByPrimaryKey(scuolaId);
 		return scuola;				
 	}
