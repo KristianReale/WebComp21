@@ -112,16 +112,46 @@ public class StudenteDAOJDBC implements StudenteDAO{
 		return studenti;
 	}
 
-	@Override
 	public void update(Studente studente) {
-		// TODO Auto-generated method stub
-		
+		Connection connection = null;
+		try {
+			connection = this.dbSource.getConnection();
+			String update = "update studente SET nome = ?, cognome = ?, data_nascita = ?, scuola = ?, corsodilaurea = ? WHERE matricola=?";
+			PreparedStatement statement = connection.prepareStatement(update);
+			statement.setString(1, studente.getNome());
+			statement.setString(2, studente.getCognome());
+			statement.setString(3, studente.getDataNascita());			
+			statement.setLong(4, studente.getScuola().getId());
+			statement.setString(6, studente.getMatricola());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
 	}
 
-	@Override
 	public void delete(Studente studente) {
-		// TODO Auto-generated method stub
-		
+		Connection connection = null;
+		try {
+			connection = this.dbSource.getConnection();
+			String delete = "delete FROM studente WHERE matricola = ? ";
+			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.setString(1, studente.getMatricola());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e.getMessage());
+			}
+		}
 	}
 
 	@Override
